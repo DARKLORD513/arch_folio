@@ -148,12 +148,7 @@ header{
     justify-content: center;
     flex-flow: column;
     
-}
-.profile{
-   border:  solid yellow;
-   border-radius: 50%;
-   overflow: visible;
-
+    
 }
 
 
@@ -323,6 +318,7 @@ header .navbar ul li a:hover{
     padding-left: 4rem;
     border-left: .2rem solid #fff;
     position: relative;
+    /* flex-basis: 35%; */
 }
 
 .education .box-container .box span{
@@ -452,8 +448,69 @@ header .navbar ul li a:hover{
     display: none;
 }
 
+.logocover
+{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.logocover::before
+{
+content: '';
+position: absolute;
+inset: -10px 120px;
+background: linear-gradient(315deg, #00ccff, #d400d4);
+transition: 1sec;
+animation: animate 6s linear infinite;
 
 
+}
+.logocover:hover::before
+{
+    inset: -10px -120px;
+}
+@keyframes animate
+{
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  100%
+  {
+    transform: rotate(360deg);
+  }
+}
+.logocover::after
+{
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: #162052;
+  border-radius: 50%;
+  z-index: 1;
+}
+.logoimage
+{
+ position: absolute;
+ inset: 5px;
+ border: 6px solid #070a1c;
+ z-index: 3;
+ border-radius: 50%;
+ overflow: hidden;
+
+
+}
+.logoimage img{
+  top: 0;
+  left: 0;
+  height:100% ;
+  width: 100%;
+  object-fit: cover;
+  
+}
 
 
 
@@ -547,3 +604,106 @@ header .navbar ul li a:hover{
   justify-content: space-evenly;
   text-align: center;
  }
+ .skillsbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+ }
+ .shukla{
+    object-fit: cover;
+ }
+ .container {
+    position: relative;
+    width: 80px; /* Set the width to match the image width */
+    height: 80px; /* Set the height to match the image height */
+    margin: 50px auto;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 80px, 80px, 40px); /* Adjust the clip to match the container dimensions */
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .progress-circle {
+    fill: none;
+    stroke: #3498db;
+    stroke-width: 6; /* Adjust the stroke width as needed */
+    stroke-linecap: round;
+    animation: progress 2s linear infinite;
+  }
+
+  @keyframes progress {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -150; /* Adjust the stroke-dashoffset value based on the stroke width */
+    }
+  }
+
+  .main {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .progress {
+    margin: 25px 0;
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 13px;
+  }
+  .title h3 {
+    font-size: 25px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: white;
+  }
+  .barline {
+    height: 12px;
+    background: #c8d6e5;
+    border-radius: 20px;
+  }
+  
+  .countbar {
+    height: 12px;
+    background:red;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+  }
+  .countbar h3 {
+    position: absolute;
+    right: -19px;
+    top: -35px;
+    background: white;
+    padding: 4px 6px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
+  }
+  .countbar h3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 11px;
+    height: 11px;
+    background: white;
+    transform: rotate(45deg) translateX(-60%);
+  }
+  
